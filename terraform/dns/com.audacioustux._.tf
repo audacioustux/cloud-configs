@@ -16,11 +16,20 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
   proxied = true
 }
 
+// k8s cluster - test environment
+resource "cloudflare_record" "com_audacioustux_CNAME_k8s-test" {
+  zone_id = local.zone_audacioustux.id
+  name    = "k8s-test"
+  value   = "k8s-test.${local.zone_audacioustux.name}"
+  type    = "A"
+  proxied = true
+}
+
 // container registry
 resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
   zone_id = local.zone_audacioustux.id
   name    = "registry"
-  value   = local.zone_audacioustux.name
+  value   = "k8s-test.${local.zone_audacioustux.name}"
   type    = "CNAME"
   proxied = true
 }
