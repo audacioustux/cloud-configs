@@ -15,6 +15,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
   type    = "CNAME"
   proxied = true
 }
+
 resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
   zone_id = local.zone_audacioustux.id
   name    = "registry"
@@ -22,6 +23,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
   type    = "CNAME"
   proxied = true
 }
+
 resource "cloudflare_record" "craftkori_A" {
   zone_id = local.zone_audacioustux.id
   name    = "craftkori"
@@ -45,6 +47,7 @@ resource "cloudflare_record" "craftkori_SRV_mc_tcp_4120" {
     target   = "craftkori.audacioustux.com"
   }
 }
+
 resource "cloudflare_record" "craftkori_SRV_mc_tcp_5968" {
   zone_id = local.zone_audacioustux.id
   name    = "_minecraft._tcp"
@@ -60,6 +63,7 @@ resource "cloudflare_record" "craftkori_SRV_mc_tcp_5968" {
     target   = "craftkori.audacioustux.com"
   }
 }
+
 resource "cloudflare_record" "craftkori_SRV_mc_udp_24454" {
   zone_id = local.zone_audacioustux.id
   name    = "_minecraft._udp"
