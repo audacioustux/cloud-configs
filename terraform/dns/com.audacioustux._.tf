@@ -16,6 +16,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
   proxied = true
 }
 
+// container registry
 resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
   zone_id = local.zone_audacioustux.id
   name    = "registry"
