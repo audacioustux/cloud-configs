@@ -21,8 +21,8 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
 resource "cloudflare_record" "com_audacioustux_CNAME_root" {
   zone_id = local.zone_audacioustux.id
   name    = "@"
-  value   = "${local.k8s_prod_dns_label}.${local.zone_audacioustux.name}"
-  type    = "CNAME"
+  value   = var.k8s_prod_ip_addr
+  type    = "A"
   proxied = true
 }
 
