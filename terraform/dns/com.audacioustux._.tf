@@ -20,7 +20,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
 resource "cloudflare_record" "com_audacioustux_CNAME_k8s-test" {
   zone_id = local.zone_audacioustux.id
   name    = "k8s-test"
-  value   = "k8s-test.${local.zone_audacioustux.name}"
+  value   = var.k8s_test_ip_addr
   type    = "A"
   proxied = true
 }
