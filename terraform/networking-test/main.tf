@@ -1,7 +1,3 @@
-module "oci" {
-  source = "../oci"
-}
-
 variable "vcn_subnet" { default = "10.0.0.0/16" }
 variable "public_subnet" { default = "10.0.0.0/24" }
 
