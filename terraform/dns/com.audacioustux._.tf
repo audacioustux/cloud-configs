@@ -8,7 +8,7 @@ locals {
   zone_audacioustux                = data.cloudflare_zones.com_audacioustux.zones[0]
   k8s_prod_dns_label               = "k8s-prod"
   k8s_test_dns_label               = "k8s-test"
-  dev_container_registry_dns_label = "dev-registry"
+  container_registry_dev_dns_label = "registry-dev"
 }
 
 resource "cloudflare_record" "com_audacioustux_CNAME_www" {
