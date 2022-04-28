@@ -48,7 +48,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_k8s-test" {
 // container registry - dev/test environment
 resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
   zone_id = local.zone_audacioustux.id
-  name    = local.dev_container_registry_dns_label
+  name    = local.container_registry_dev_dns_label
   value   = var.dev_container_registry_ip_addr
   type    = "A"
   proxied = true
