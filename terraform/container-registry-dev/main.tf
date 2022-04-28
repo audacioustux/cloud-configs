@@ -1,3 +1,9 @@
+variable "vcn_subnet" {
+  default = "10.0.0.0/16"
+}
+variable "public_subnet" {
+  default = "10.0.0.0/24"
+}
 resource "oci_core_vcn" "default" {
   compartment_id = var.compartment_ocid
   cidr_block     = var.vcn_subnet
