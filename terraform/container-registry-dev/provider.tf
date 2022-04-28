@@ -12,6 +12,7 @@ provider "oci" {
     user_ocid               = var.user_ocid
     tenancy_ocid            = var.tenancy_ocid
     compartment_ocid        = var.compartment_ocid
+    region                  = var.region
     private_key             = var.private_key
     private_key_password    = var.private_key_password
 }
