@@ -24,7 +24,7 @@ resource "oci_core_instance" "k3s_server" {
   }
 
   metadata = {
-    ssh_authorized_keys = variable.ssh_public_key
+    ssh_authorized_keys = var.ssh_public_key
     user_data           = data.template_cloudinit_config.k3s_server.rendered
   }
 
