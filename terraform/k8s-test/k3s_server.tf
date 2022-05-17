@@ -12,7 +12,7 @@ resource "oci_core_instance" "k3s_server" {
   display_name = "k3s server"
 
   create_vnic_details {
-    subnet_id        = data.terraform_remote_state.networking-test.outputs.private_subnet.id
+    subnet_id        = data.terraform_remote_state.networking-test.outputs.public_subnet.id
     display_name     = "primary"
     assign_public_ip = true
     hostname_label   = "k3s-server"
