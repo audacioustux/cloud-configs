@@ -7,13 +7,12 @@ resource "oci_core_instance" "external_db" {
   compartment_id      = var.compartment_id
   shape               = "VM.Standard.E2.1.Micro"
 
-  display_name = "external-db"
+  display_name = "external db"
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.private_subnet.id
-    display_name     = "primary"
-    assign_public_ip = false
-    hostname_label   = "external-db"
+    subnet_id      = data.terraform_remote_state.networking-test.outputs.private_subnet.id
+    display_name   = "primary"
+    hostname_label = "external-db"
   }
 
   source_details {

@@ -26,7 +26,6 @@ data "oci_core_images" "amd64" {
   }
 }
 
-
 data "template_cloudinit_config" "k3s_server" {
   gzip          = true
   base64_encode = true

@@ -7,7 +7,7 @@ resource "oci_core_instance" "k3s_server" {
   compartment_id      = var.compartment_ocid
   shape               = "VM.Standard.A1.Flex"
 
-  display_name = "k3s-server"
+  display_name = "k3s server"
 
   create_vnic_details {
     subnet_id        = oci_core_subnet.public_subnet.id
