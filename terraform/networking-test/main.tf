@@ -16,7 +16,7 @@ resource "oci_core_internet_gateway" "default" {
 }
 
 resource "oci_core_nat_gateway" "private" {
-  compartment_id = var.compartment_id
+  compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
   display_name   = "private-nat-gateway"
 }
@@ -30,7 +30,7 @@ resource "oci_core_subnet" "public_subnet" {
 
 resource "oci_core_subnet" "private_subnet" {
   cidr_block     = var.private_subnet
-  compartment_id = var.compartment_id
+  compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
   display_name   = "private-subnet"
   dns_label      = "private"
@@ -49,7 +49,7 @@ resource "oci_core_default_route_table" "default" {
 }
 
 resource "oci_core_route_table" "private" {
-  compartment_id = var.compartment_id
+  compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
 
   display_name = "private-route-table"
