@@ -1,3 +1,5 @@
+variable "ssh_public_key" { type = string }
+
 resource "random_password" "cluster_token" {
   length = 64
 }
@@ -22,7 +24,7 @@ resource "oci_core_instance" "k3s_server" {
   }
 
   metadata = {
-    ssh_authorized_keys = chomp(file(var.ssh_public_key))
+    ssh_authorized_keys = variable.ssh_public_key
     user_data           = data.template_cloudinit_config.k3s_server.rendered
   }
 

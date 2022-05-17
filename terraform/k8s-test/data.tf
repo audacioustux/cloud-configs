@@ -37,6 +37,17 @@ data "template_cloudinit_config" "k3s_server" {
   }
 }
 
+data "template_cloudinit_config" "external_db" {
+  gzip          = true
+  base64_encode = true
+
+  part {
+    filename     = "externaldb.yaml"
+    content_type = "text/cloud-config"
+    content      = data.template_file.externaldb_cloud_init_file.rendered
+  }
+}
+
 data "template_file" "k3s_server_template" {
   template = file("scripts/k3s_server.template.sh")
 
