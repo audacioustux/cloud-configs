@@ -46,8 +46,6 @@ resource "oci_core_default_route_table" "default" {
 resource "oci_core_route_table" "private" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
-
-  display_name = "private-route-table"
 }
 
 
