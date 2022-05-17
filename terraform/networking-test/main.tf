@@ -15,10 +15,10 @@ resource "oci_core_internet_gateway" "default" {
   vcn_id         = oci_core_vcn.default.id
 }
 
-resource "oci_core_nat_gateway" "private_subnet" {
+resource "oci_core_nat_gateway" "private" {
   compartment_id = var.compartment_id
-  vcn_id         = oci_core_vcn.main.id
-  display_name   = "private-gateway"
+  vcn_id         = oci_core_vcn.default.id
+  display_name   = "private-nat-gateway"
 }
 resource "oci_core_subnet" "public_subnet" {
   cidr_block     = var.public_subnet
@@ -31,7 +31,7 @@ resource "oci_core_subnet" "public_subnet" {
 resource "oci_core_subnet" "private_subnet" {
   cidr_block     = var.private_subnet
   compartment_id = var.compartment_id
-  vcn_id         = oci_core_vcn.main.id
+  vcn_id         = oci_core_vcn.default.id
   display_name   = "private-subnet"
   dns_label      = "private"
   route_table_id = oci_core_route_table.private_subnet.id
@@ -48,14 +48,14 @@ resource "oci_core_default_route_table" "default" {
   }
 }
 
-resource "oci_core_route_table" "private_subnet" {
+resource "oci_core_route_table" "private" {
   compartment_id = var.compartment_id
-  vcn_id         = oci_core_vcn.main.id
+  vcn_id         = oci_core_vcn.default.id
 
-  display_name = "private gateway"
+  display_name = "private-route-table"
 
   route_rules {
-    network_entity_id = oci_core_nat_gateway.private_subnet.id
+    network_entity_id = oci_core_nat_gateway.private.id
 
     description = "k8s private to public internal"
     destination = "0.0.0.0/0"
