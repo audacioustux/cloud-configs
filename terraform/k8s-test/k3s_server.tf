@@ -19,8 +19,14 @@ resource "oci_core_instance" "k3s_server" {
   }
 
   source_details {
-    source_id   = data.oci_core_images.aarch64.images.0.id
-    source_type = "image"
+    source_id               = data.oci_core_images.aarch64.images.0.id
+    source_type             = "image"
+    boot_volume_size_in_gbs = 100
+  }
+
+  shape_config {
+    ocpus         = 4
+    memory_in_gbs = 24
   }
 
   metadata = {
