@@ -44,7 +44,7 @@ data "template_cloudinit_config" "external_db" {
   part {
     filename     = "externaldb.yaml"
     content_type = "text/cloud-config"
-    content      = data.template_file.externaldb_cloud_init_file.rendered
+    content      = data.template_file.external_db_cloud_init_file.rendered
   }
 }
 
