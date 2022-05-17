@@ -24,12 +24,13 @@ resource "oci_core_subnet" "public_subnet" {
 }
 
 resource "oci_core_subnet" "private_subnet" {
-  cidr_block     = var.private_subnet
-  compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.default.id
-  display_name   = "private subnet"
-  dns_label      = "private"
-  route_table_id = oci_core_route_table.private.id
+  cidr_block                 = var.private_subnet
+  compartment_id             = var.compartment_ocid
+  vcn_id                     = oci_core_vcn.default.id
+  display_name               = "private subnet"
+  dns_label                  = "private"
+  prohibit_public_ip_on_vnic = true
+  route_table_id             = oci_core_route_table.private.id
 }
 
 resource "oci_core_default_route_table" "default" {
