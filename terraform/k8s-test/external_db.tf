@@ -4,7 +4,7 @@ resource "random_password" "sqlpassword" {
 
 resource "oci_core_instance" "external_db" {
   availability_domain = data.oci_identity_availability_domains.default.availability_domains.0.name
-  compartment_id      = var.compartment_id
+  compartment_id      = var.compartment_ocid
   shape               = "VM.Standard.E2.1.Micro"
 
   display_name = "external db"
