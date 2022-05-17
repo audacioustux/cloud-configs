@@ -3,7 +3,7 @@ data "terraform_remote_state" "networking-test" {
   config = {
     organization = "nobinalo"
     workspaces = {
-      name = "nobinalo-test"
+      name = "networking-test"
     }
   }
 }
