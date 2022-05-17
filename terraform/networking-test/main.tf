@@ -1,4 +1,5 @@
 variable "vcn_subnet" { default = "10.0.0.0/16" }
+variable "private_subnet" { default = "10.0.2.0/23" }
 variable "public_subnet" { default = "10.0.0.0/23" }
 
 resource "oci_core_vcn" "default" {
@@ -22,6 +23,15 @@ resource "oci_core_subnet" "public_subnet" {
   dns_label      = "public"
 }
 
+resource "oci_core_subnet" "private_subnet" {
+  cidr_block     = var.private_subnet
+  compartment_id = var.compartment_ocid
+  vcn_id         = oci_core_vcn.default.id
+  display_name   = "private-subnet"
+  dns_label      = "private"
+  route_table_id = oci_core_route_table.private.id
+}
+
 resource "oci_core_default_route_table" "default" {
   manage_default_resource_id = oci_core_vcn.default.default_route_table_id
 
@@ -31,6 +41,13 @@ resource "oci_core_default_route_table" "default" {
     description = "internet gateway"
     destination = "0.0.0.0/0"
   }
+}
+
+resource "oci_core_route_table" "private" {
+  compartment_id = var.compartment_ocid
+  vcn_id         = oci_core_vcn.default.id
+
+  display_name = "private-route-table"
 }
 
 
