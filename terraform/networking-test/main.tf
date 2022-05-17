@@ -5,13 +5,13 @@ variable "public_subnet" { default = "10.0.0.0/23" }
 resource "oci_core_vcn" "default" {
   compartment_id = var.compartment_ocid
   cidr_block     = var.vcn_subnet
-  display_name   = "default-vcn"
+  display_name   = "default vcn"
   dns_label      = "default"
 }
 
 resource "oci_core_internet_gateway" "default" {
   compartment_id = var.compartment_ocid
-  display_name   = "default-gateway"
+  display_name   = "default gateway"
   vcn_id         = oci_core_vcn.default.id
 }
 
@@ -19,7 +19,7 @@ resource "oci_core_subnet" "public_subnet" {
   cidr_block     = var.public_subnet
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
-  display_name   = "public-subnet"
+  display_name   = "public subnet"
   dns_label      = "public"
 }
 
@@ -27,7 +27,7 @@ resource "oci_core_subnet" "private_subnet" {
   cidr_block     = var.private_subnet
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
-  display_name   = "private-subnet"
+  display_name   = "private subnet"
   dns_label      = "private"
   route_table_id = oci_core_route_table.private.id
 }
@@ -46,6 +46,8 @@ resource "oci_core_default_route_table" "default" {
 resource "oci_core_route_table" "private" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.default.id
+
+  display_name = "private route table"
 }
 
 
