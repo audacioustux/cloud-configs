@@ -22,7 +22,7 @@ resource "oci_core_instance" "external_db" {
 
   metadata = {
     ssh_authorized_keys = var.ssh_public_key
-    user_data           = data.template_cloudinit_config.externaldb.rendered
+    user_data           = data.template_cloudinit_config.external_db.rendered
   }
 
   lifecycle {

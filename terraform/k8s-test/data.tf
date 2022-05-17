@@ -38,7 +38,7 @@ data "template_cloudinit_config" "k3s_server" {
 }
 
 data "template_file" "k3s_server_template" {
-  template = file("${path.module}/scripts/k3s_server.template.sh")
+  template = file("scripts/k3s_server.template.sh")
 
   vars = {
     cluster_token = random_password.cluster_token.result
@@ -46,7 +46,7 @@ data "template_file" "k3s_server_template" {
 }
 
 data "template_file" "k3s_server_cloud_init_file" {
-  template = file("${path.module}/cloud-init/cloud-init.template.yaml")
+  template = file("cloud-init/cloud-init.template.yaml")
 
   vars = {
     bootstrap_sh_content = base64gzip(data.template_file.k3s_server_template.rendered)
@@ -55,7 +55,7 @@ data "template_file" "k3s_server_cloud_init_file" {
 
 
 data "template_file" "external_db_template" {
-  template = file("${path.module}/scripts/external_db.template.sh")
+  template = file("scripts/external_db.template.sh")
 
   vars = {
     password = random_password.sqlpassword.result
@@ -63,7 +63,7 @@ data "template_file" "external_db_template" {
 }
 
 data "template_file" "external_db_cloud_init_file" {
-  template = file("${path.module}/cloud-init/cloud-init.template.yaml")
+  template = file("cloud-init/cloud-init.template.yaml")
 
   vars = {
     bootstrap_sh_content = base64gzip(data.template_file.external_db_template.rendered)
