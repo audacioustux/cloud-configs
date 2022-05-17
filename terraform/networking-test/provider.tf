@@ -11,7 +11,6 @@ terraform {
   }
 }
 
-// NOTE: couldn't use TF_VAR_private_key in terraform cloud
 provider "oci" {
   private_key          = var.oci_private_key
   private_key_password = var.oci_private_key_password
