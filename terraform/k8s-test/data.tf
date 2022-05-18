@@ -42,6 +42,7 @@ data "template_file" "k3s_server_template" {
 
   vars = {
     cluster_token = random_password.cluster_token.result
+    internal_fqdn = "${oci_core_instance.k3s_server.hostname_label}.${data.oci_core_subnet.public_subnet.dns_label}.${data.oci_core_vcn.default.dns_label}.oraclevcn.com"
   }
 }
 

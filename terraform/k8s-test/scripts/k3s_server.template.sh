@@ -25,7 +25,7 @@ wait_lb() {
     done
 }
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --node-ip $local_ip --advertise-address $local_ip --write-kubeconfig-mode "0644" --tls-san=$public_ip --tls-san="k3s-server.public.default.oraclevcn.com"
+curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --node-ip $local_ip --advertise-address $local_ip --write-kubeconfig-mode "0644" --tls-san=$public_ip --tls-san='${internal_fqdn}'
 
 while ! nc -z localhost 6443; do
   sleep 1
