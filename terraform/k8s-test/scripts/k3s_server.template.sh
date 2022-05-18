@@ -12,6 +12,8 @@ iptables -I INPUT -i ens3 -p tcp -s 10.0.0.0/8  --dport 6443 -j ACCEPT
 
 public_ip=$(curl -s ifconfig.co)
 local_ip=$(curl -s -H "Authorization: Bearer Oracle" -L http://169.254.169.254/opc/v2/vnics/ | jq -r '.[0].privateIp')
+hostname=$(curl -s -H "Authorization: Bearer Oracle" -L http://169.254.169.254/opc/v2/instance | jq -r '.hostname')
+internal_fqdn=$hostname'.${internal_fqdn_parent}'
 
 wait_lb() {
     while [ true ]
@@ -25,7 +27,7 @@ wait_lb() {
     done
 }
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --node-ip $local_ip --advertise-address $local_ip --write-kubeconfig-mode "0644" --tls-san=$public_ip --tls-san='${internal_fqdn}'
+curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --node-ip $local_ip --advertise-address $local_ip --write-kubeconfig-mode "0644" --tls-san=$public_ip --tls-san=$internal_fqdn
 
 while ! nc -z localhost 6443; do
   sleep 1
