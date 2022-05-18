@@ -10,7 +10,21 @@ systemctl disable firewalld --now
 iptables -A INPUT -i ens3 -p tcp  --dport 6443 -j DROP
 iptables -I INPUT -i ens3 -p tcp -s 10.0.0.0/8  --dport 6443 -j ACCEPT
 
-curl -sfL https://get.k3s.io | K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --tls-san="k3s.local"
+local_ip=$(curl -s -H "Authorization: Bearer Oracle" -L http://169.254.169.254/opc/v2/vnics/ | jq -r '.[0].privateIp')
+
+wait_lb() {
+    while [ true ]
+    do
+        curl --output /dev/null --silent -k https://$local_ip:6443
+        if [[ "$?" -eq 0 ]]; then
+            break
+        fi
+        sleep 5
+        echo "wait for LB"
+    done
+}
+
+curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest K3S_CLUSTER_SECRET='${cluster_token}' sh -s - --cluster-init --node-ip $local_ip --advertise-address $local_ip --write-kubeconfig-mode "0644" --tls-san="k8s-test.audacioustux.com" --tls-san="k3s-server.public.default.oraclevcn.com"
 
 while ! nc -z localhost 6443; do
   sleep 1
