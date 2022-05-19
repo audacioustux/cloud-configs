@@ -41,8 +41,10 @@ data "template_file" "k3s_server_template" {
   template = file("scripts/k3s_server.template.sh")
 
   vars = {
-    cluster_token        = random_password.cluster_token.result
-    internal_fqdn_parent = "${data.oci_core_subnet.public_subnet.dns_label}.${data.oci_core_vcn.default.dns_label}.oraclevcn.com"
+    cluster_token               = random_password.cluster_token.result
+    container_registry_host     = var.container_registry_host
+    container_registry_username = var.container_registry_username
+    container_registry_password = var.container_registry_password
   }
 }
 

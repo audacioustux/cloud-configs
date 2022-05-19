@@ -1,5 +1,3 @@
-variable "ssh_public_key" { type = string }
-
 resource "random_password" "cluster_token" {
   length = 64
 }

@@ -5,8 +5,7 @@ data "cloudflare_zones" "com_audacioustux" {
 }
 
 locals {
-  zone_audacioustux                = data.cloudflare_zones.com_audacioustux.zones[0]
-  container_registry_dev_dns_label = "registry-dev"
+  zone_audacioustux = data.cloudflare_zones.com_audacioustux.zones[0]
 }
 
 resource "cloudflare_record" "com_audacioustux_CNAME_www" {
@@ -21,15 +20,6 @@ resource "cloudflare_record" "com_audacioustux_CNAME_root" {
   zone_id = local.zone_audacioustux.id
   name    = "@"
   value   = var.k8s_prod_ip_addr
-  type    = "A"
-  proxied = true
-}
-
-// container registry - dev/test environment
-resource "cloudflare_record" "com_audacioustux_CNAME_registry" {
-  zone_id = local.zone_audacioustux.id
-  name    = local.container_registry_dev_dns_label
-  value   = var.dev_container_registry_ip_addr
   type    = "A"
   proxied = true
 }
