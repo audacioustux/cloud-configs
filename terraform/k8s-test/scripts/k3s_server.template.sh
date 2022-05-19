@@ -49,3 +49,5 @@ sed -i "s/127.0.0.1/$public_ip/g" /home/opc/.kube/config
 chown opc:opc /home/opc/.kube/ -R
 
 iptables -D INPUT -i ens3 -p tcp --dport 6443 -j DROP
+
+yum update -y
