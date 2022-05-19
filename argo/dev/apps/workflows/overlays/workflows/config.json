@@ -1,0 +1,10 @@
+{
+  "appName": "workflows",
+  "userGivenName": "workflows",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "argo/dev/apps/workflows/overlays/workflows",
+  "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
+  "srcTargetRevision": "",
+  "labels": null
+}
