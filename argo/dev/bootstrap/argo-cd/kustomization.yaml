@@ -19,8 +19,8 @@ kind: Kustomization
 namespace: argocd
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.3.7
-  - ./ingress.yaml
   - ./cert-resolver.yaml
+  - ./ingress.yaml
 
 patches:
   # Replace image with arm64 built one
