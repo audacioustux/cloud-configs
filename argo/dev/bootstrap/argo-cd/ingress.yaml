@@ -22,3 +22,4 @@ spec:
           scheme: h2c
   tls:
     certResolver: argocd-server
+    options: {}
