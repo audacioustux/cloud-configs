@@ -39,6 +39,8 @@ configs:
       password: ${container_registry_password}
 EOF
 
+wget https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml -P /var/lib/rancher/k3s/server/manifests
+
 wait_lb
 
 mkdir /home/opc/.kube
