@@ -21,4 +21,8 @@ spec:
           port: 80
           scheme: h2c
   tls:
+<<<<<<< 0951586c4f8fa93e2a7603d885aadf8b2f3e71cf
     certResolver: default
+=======
+    certResolver: argocd-server
+>>>>>>> add cert-manager

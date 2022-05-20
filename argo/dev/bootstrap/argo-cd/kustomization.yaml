@@ -20,6 +20,11 @@ kind: Kustomization
 namespace: argocd
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.3.7
+<<<<<<< 0951586c4f8fa93e2a7603d885aadf8b2f3e71cf
+=======
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
+  - ./issuer.yaml
+>>>>>>> add cert-manager
   - ./ingress.yaml
 
 patches:

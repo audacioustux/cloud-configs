@@ -1,3 +1,4 @@
+<<<<<<< 0951586c4f8fa93e2a7603d885aadf8b2f3e71cf
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -26,6 +27,8 @@ spec:
             class: traefik
 
 ---
+=======
+>>>>>>> add cert-manager
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
