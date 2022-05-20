@@ -22,4 +22,3 @@ spec:
           scheme: h2c
   tls:
     certResolver: letsencrypt
-    options: {}
