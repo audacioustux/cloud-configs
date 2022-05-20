@@ -50,4 +50,11 @@ chown opc:opc /home/opc/.kube/ -R
 
 iptables -D INPUT -i ens3 -p tcp --dport 6443 -j DROP
 
+yum install -y git
+
+docker run \
+  -v /home/opc/.kube:/home/autopilot/.kube \
+  -v ~/.gitconfig:/home/autopilot/.gitconfig \
+  -it quay.io/argoprojlabs/argocd-autopilot repo bootstrap --recover
+
 yum update -y
