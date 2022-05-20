@@ -8,19 +8,19 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      files:
-      - path: argo/dev/bootstrap/cluster-resources/*.json
-      repoURL: https://github.com/audacioustux/cloud-configs.git
-      requeueAfterSeconds: 20
-      revision: ""
-      template:
-        metadata: {}
-        spec:
-          destination: {}
-          project: ""
-          source:
-            repoURL: ""
+    - git:
+        files:
+          - path: argo/dev/bootstrap/cluster-resources/*.json
+        repoURL: https://github.com/audacioustux/cloud-configs.git
+        requeueAfterSeconds: 20
+        revision: ""
+        template:
+          metadata: {}
+          spec:
+            destination: {}
+            project: ""
+            source:
+              repoURL: ""
   syncPolicy:
     preserveResourcesOnDeletion: true
   template:
@@ -32,12 +32,12 @@ spec:
       namespace: argocd
     spec:
       destination:
-        server: '{{server}}'
+        server: "{{server}}"
       ignoreDifferences:
-      - group: argoproj.io
-        jsonPointers:
-        - /status
-        kind: Application
+        - group: argoproj.io
+          jsonPointers:
+            - /status
+          kind: Application
       project: default
       source:
         path: argo/dev/bootstrap/cluster-resources/{{name}}
@@ -47,3 +47,30 @@ spec:
           allowEmpty: true
           selfHeal: true
 status: {}
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: cert-manager
+helmCharts:
+  - name: cert-manager
+    includeCRDs: true
+    releaseName: cert-manager
+    version: 1.8.0
+    repo: https://charts.jetstack.io
+
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: default
+spec:
+  acme:
+    email: tangimhossain1@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: default
+    solvers:
+      - http01:
+          ingress:
+            class: traefik
