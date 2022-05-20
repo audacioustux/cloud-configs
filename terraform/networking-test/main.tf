@@ -74,6 +74,17 @@ resource "oci_core_default_security_list" "default" {
   ingress_security_rules {
     protocol    = "6"
     source      = "0.0.0.0/0"
+    description = "https"
+
+    tcp_options {
+      max = 443
+      min = 443
+    }
+  }
+
+  ingress_security_rules {
+    protocol    = "6"
+    source      = "0.0.0.0/0"
     description = "Kubernetes API"
 
     tcp_options {
