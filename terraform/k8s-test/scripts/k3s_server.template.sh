@@ -39,9 +39,7 @@ configs:
       password: ${container_registry_password}
 EOF
 
-while ! nc -z localhost 6443; do
-  sleep 1
-done
+wait_lb
 
 mkdir /home/opc/.kube
 cp /etc/rancher/k3s/k3s.yaml /home/opc/.kube/config
