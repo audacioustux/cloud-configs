@@ -1,0 +1,11 @@
+apiVersion: v2
+name: pravega
+
+type: application
+
+version: 0.1.0
+
+dependencies:
+  - name: pravega
+    version: 0.10.4
+    repository: https://charts.pravega.io
