@@ -3,7 +3,7 @@
   "userGivenName": "pravega",
   "destNamespace": "pravega",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "charts/charts/pravega/",
+  "srcPath": "charts/pravega/",
   "srcRepoURL": "https://github.com/pravega/charts.git",
   "srcTargetRevision": "",
   "labels": null,
