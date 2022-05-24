@@ -87,7 +87,6 @@ spec:
         path: "{{ srcPath }}"
         repoURL: "{{ srcRepoURL }}"
         targetRevision: "{{ srcTargetRevision }}"
-        chart: pravega
       syncPolicy:
         automated:
           allowEmpty: true
