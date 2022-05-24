@@ -93,3 +93,152 @@ spec:
           prune: true
           selfHeal: true
 status: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pravega
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.10.4
+    chart: pravega
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pravega-operator
+spec:
+  destination:
+    name: ""
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    path: ""
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.6.2
+    chart: pravega-operator
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zookeeper-operator
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.2.14
+    chart: zookeeper-operator
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zookeeper
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.2.14
+    chart: zookeeper
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookkeeper-operator
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.2.3
+    chart: bookkeeper-operator
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookkeeper
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.10.4
+    chart: bookkeeper
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookkeeper
+spec:
+  destination:
+    namespace: pravega
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://charts.pravega.io"
+    targetRevision: 0.10.4
+    chart: bookkeeper
+    directory:
+      recurse: true
+  project: pravega
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
