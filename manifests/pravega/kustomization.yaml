@@ -4,5 +4,5 @@ namespace: pravega
 helmCharts:
   - name: pravega-operator
     releaseName: pravega-operator
-    version: 0.10.4
+    version: 0.6.2
     repo: https://charts.pravega.io
