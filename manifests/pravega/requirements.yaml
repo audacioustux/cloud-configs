@@ -1,4 +1,0 @@
-dependencies:
-  - name: pravega-operator
-    version: 0.6.2
-    repository: https://charts.pravega.io
