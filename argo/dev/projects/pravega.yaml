@@ -128,8 +128,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.6.2
     chart: pravega-operator
-    helm:
-      releaseName: pravega-operator
   project: pravega
   syncPolicy:
     automated:
