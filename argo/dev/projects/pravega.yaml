@@ -148,8 +148,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.2.14
     chart: zookeeper-operator
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
@@ -170,8 +168,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.2.14
     chart: zookeeper
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
@@ -192,8 +188,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.2.3
     chart: bookkeeper-operator
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
@@ -214,8 +208,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.10.4
     chart: bookkeeper
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
@@ -236,8 +228,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.10.4
     chart: bookkeeper
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
