@@ -213,23 +213,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: bookkeeper
-  namespace: argocd
-spec:
-  destination:
-    namespace: pravega
-    server: "https://kubernetes.default.svc"
-  source:
-    repoURL: "https://charts.pravega.io"
-    targetRevision: 0.10.4
-    chart: bookkeeper
-  project: pravega
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
