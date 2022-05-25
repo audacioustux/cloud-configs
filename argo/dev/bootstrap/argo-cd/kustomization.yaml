@@ -17,16 +17,15 @@ resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/insecure?ref=v0.3.7
   - ./issuer.yaml
   - ./ingress.yaml
-
-patches:
-  # Replace image with arm64 built one
-  # TODO: update when resolved https://github.com/argoproj/argo-cd/issues/8394
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: argocd-applicationset-controller
-    patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/image
-        value: ghcr.io/jr64/argocd-applicationset:v0.4.0
+# patches:
+#   # Replace image with arm64 built one
+#   # TODO: update when resolved https://github.com/argoproj/argo-cd/issues/8394
+#   - target:
+#       group: apps
+#       version: v1
+#       kind: Deployment
+#       name: argocd-applicationset-controller
+#     patch: |-
+#       - op: replace
+#         path: /spec/template/spec/containers/0/image
+#         value: ghcr.io/jr64/argocd-applicationset:v0.4.0
