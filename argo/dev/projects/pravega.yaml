@@ -108,8 +108,6 @@ spec:
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.10.4
     chart: pravega
-    directory:
-      recurse: true
   project: pravega
   syncPolicy:
     automated:
