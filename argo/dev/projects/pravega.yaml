@@ -23,82 +23,83 @@ spec:
     - "*"
 status: {}
 
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "0"
-#   creationTimestamp: null
-#   name: pravega
-#   namespace: argocd
-# spec:
-#   generators:
-#     - git:
-#         files:
-#           - path: argo/dev/apps/**/pravega/config.json
-#         repoURL: https://github.com/audacioustux/cloud-configs.git
-#         requeueAfterSeconds: 20
-#         revision: ""
-#         template:
-#           metadata: {}
-#           spec:
-#             destination: {}
-#             project: ""
-#             source:
-#               repoURL: ""
-#     - git:
-#         files:
-#           - path: argo/dev/apps/**/pravega/config_dir.json
-#         repoURL: https://github.com/audacioustux/cloud-configs.git
-#         requeueAfterSeconds: 20
-#         revision: ""
-#         template:
-#           metadata: {}
-#           spec:
-#             destination: {}
-#             project: ""
-#             source:
-#               directory:
-#                 exclude: "{{ exclude }}"
-#                 include: "{{ include }}"
-#                 jsonnet: {}
-#                 recurse: true
-#               repoURL: ""
-#   syncPolicy: {}
-#   template:
-#     metadata:
-#       labels:
-#         app.kubernetes.io/managed-by: argocd-autopilot
-#         app.kubernetes.io/name: "{{ appName }}"
-#       name: pravega-{{ userGivenName }}
-#       namespace: argocd
-#     spec:
-#       destination:
-#         namespace: "{{ destNamespace }}"
-#         server: "{{ destServer }}"
-#       ignoreDifferences:
-#         - group: argoproj.io
-#           jsonPointers:
-#             - /status
-#           kind: Application
-#       project: pravega
-#       source:
-#         path: "{{ srcPath }}"
-#         repoURL: "{{ srcRepoURL }}"
-#         targetRevision: "{{ srcTargetRevision }}"
-#       syncPolicy:
-#         automated:
-#           allowEmpty: true
-#           prune: true
-#           selfHeal: true
-# status: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: pravega
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        files:
+          - path: argo/dev/apps/**/pravega/config.json
+        repoURL: https://github.com/audacioustux/cloud-configs.git
+        requeueAfterSeconds: 20
+        revision: ""
+        template:
+          metadata: {}
+          spec:
+            destination: {}
+            project: ""
+            source:
+              repoURL: ""
+    - git:
+        files:
+          - path: argo/dev/apps/**/pravega/config_dir.json
+        repoURL: https://github.com/audacioustux/cloud-configs.git
+        requeueAfterSeconds: 20
+        revision: ""
+        template:
+          metadata: {}
+          spec:
+            destination: {}
+            project: ""
+            source:
+              directory:
+                exclude: "{{ exclude }}"
+                include: "{{ include }}"
+                jsonnet: {}
+                recurse: true
+              repoURL: ""
+  syncPolicy: {}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: "{{ appName }}"
+      name: pravega-{{ userGivenName }}
+      namespace: argocd
+    spec:
+      destination:
+        namespace: "{{ destNamespace }}"
+        server: "{{ destServer }}"
+      ignoreDifferences:
+        - group: argoproj.io
+          jsonPointers:
+            - /status
+          kind: Application
+      project: pravega
+      source:
+        path: "{{ srcPath }}"
+        repoURL: "{{ srcRepoURL }}"
+        targetRevision: "{{ srcTargetRevision }}"
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+status: {}
 
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: pravega
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
@@ -120,6 +121,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: pravega-operator
+  namespace: argocd
 spec:
   destination:
     name: ""
@@ -143,6 +145,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: zookeeper-operator
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
@@ -164,6 +167,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: zookeeper
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
@@ -185,6 +189,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bookkeeper-operator
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
@@ -206,6 +211,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bookkeeper
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
@@ -227,6 +233,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bookkeeper
+  namespace: argocd
 spec:
   destination:
     namespace: pravega
