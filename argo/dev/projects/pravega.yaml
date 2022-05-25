@@ -124,14 +124,14 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    name: ""
     namespace: pravega
     server: "https://kubernetes.default.svc"
   source:
-    path: ""
     repoURL: "https://charts.pravega.io"
     targetRevision: 0.6.2
     chart: pravega-operator
+    helm:
+      releaseName: pravega-operator
     directory:
       recurse: true
   project: pravega
