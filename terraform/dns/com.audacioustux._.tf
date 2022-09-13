@@ -16,18 +16,18 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
   proxied = true
 }
 
-resource "cloudflare_record" "com_audacioustux_CNAME_root" {
+resource "cloudflare_record" "com_audacioustux_CNAME_kuma" {
   zone_id = local.zone_audacioustux.id
   name    = "kuma"
-  value   = var.k8s_test_ip_addr
+  value   = data.oci_core_public_ip.k3s_test_server-public_ip.ip_address
   type    = "CNAME"
   proxied = true
 }
 
-resource "cloudflare_record" "com_audacioustux_CNAME_root" {
+resource "cloudflare_record" "com_audacioustux_CNAME_argocd-test" {
   zone_id = local.zone_audacioustux.id
   name    = "argocd-test"
-  value   = var.k8s_test_ip_addr
+  value   = data.oci_core_public_ip.k3s_test_server-public_ip.ip_address
   type    = "CNAME"
   proxied = true
 }
