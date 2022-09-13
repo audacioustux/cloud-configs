@@ -4,6 +4,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
   creationTimestamp: null
-  name: pravega
+  name: kuma
 spec: {}
 status: {}
