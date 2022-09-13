@@ -6,7 +6,7 @@ data "cloudflare_zones" "com_audacioustux" {
 
 locals {
   zone_audacioustux         = data.cloudflare_zones.com_audacioustux.zones[0]
-  k3s_test_server-public_ip = data.terraform_remote_state.k8s-test.outputs.k3s-server-ip.value
+  k3s_test_server-public_ip = data.terraform_remote_state.k8s-test.outputs.k3s-server-ip
 }
 
 resource "cloudflare_record" "com_audacioustux_CNAME_www" {
