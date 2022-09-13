@@ -5,7 +5,8 @@ data "cloudflare_zones" "com_audacioustux" {
 }
 
 locals {
-  zone_audacioustux = data.cloudflare_zones.com_audacioustux.zones[0]
+  zone_audacioustux         = data.cloudflare_zones.com_audacioustux.zones[0]
+  k3s_test_server-public_ip = data.terraform_remote_state.k8s-test.outputs.k3s-server-ip
 }
 
 resource "cloudflare_record" "com_audacioustux_CNAME_www" {
@@ -19,7 +20,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
 resource "cloudflare_record" "com_audacioustux_CNAME_kuma" {
   zone_id = local.zone_audacioustux.id
   name    = "kuma"
-  value   = data.oci_core_public_ip.k3s_test_server-public_ip.ip_address
+  value   = local.k3s_test_server-public_ip
   type    = "CNAME"
   proxied = true
 }
@@ -27,7 +28,7 @@ resource "cloudflare_record" "com_audacioustux_CNAME_kuma" {
 resource "cloudflare_record" "com_audacioustux_CNAME_argocd-test" {
   zone_id = local.zone_audacioustux.id
   name    = "argocd-test"
-  value   = data.oci_core_public_ip.k3s_test_server-public_ip.ip_address
+  value   = local.k3s_test_server-public_ip
   type    = "CNAME"
   proxied = true
 }
