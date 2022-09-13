@@ -18,9 +18,17 @@ resource "cloudflare_record" "com_audacioustux_CNAME_www" {
 
 resource "cloudflare_record" "com_audacioustux_CNAME_root" {
   zone_id = local.zone_audacioustux.id
-  name    = "@"
-  value   = var.k8s_prod_ip_addr
-  type    = "A"
+  name    = "kuma"
+  value   = var.k8s_test_ip_addr
+  type    = "CNAME"
+  proxied = true
+}
+
+resource "cloudflare_record" "com_audacioustux_CNAME_root" {
+  zone_id = local.zone_audacioustux.id
+  name    = "argocd-test"
+  value   = var.k8s_test_ip_addr
+  type    = "CNAME"
   proxied = true
 }
 
