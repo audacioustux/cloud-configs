@@ -4,10 +4,6 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "~> 3.0"
     }
-    oci = {
-      source  = "oracle/oci"
-      version = "4.73.0"
-    }
   }
 }
 
