@@ -1,0 +1,10 @@
+{
+  "appName": "uptime-kuma",
+  "userGivenName": "kuma",
+  "destNamespace": "kuma",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "argo/dev/apps/kuma/overlays/kuma",
+  "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
+  "srcTargetRevision": "",
+  "labels": null
+}
