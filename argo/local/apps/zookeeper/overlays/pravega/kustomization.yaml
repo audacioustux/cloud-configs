@@ -5,7 +5,7 @@ namespace: pravega
 # - ../../base
 
 helmCharts:
-  - name: pravega/zookeeper-operator
+  - name: zookeeper-operator
     repo: https://charts.pravega.io
     releaseName: zookeeper-operator
     namespace: pravega
