@@ -3,7 +3,7 @@
     "userGivenName": "cert-manager",
     "destNamespace": "cert-manager",
     "destServer": "https://kubernetes.default.svc",
-    "srcPath": "argo/local/apps/cert-manager/overlays/infra",
+    "srcPath": "argo/local/apps/cert-manager/overlays/cert-manager",
     "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
     "srcTargetRevision": "",
     "labels": null,
