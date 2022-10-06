@@ -1,0 +1,11 @@
+{
+  "appName": "pravega",
+  "userGivenName": "pravega",
+  "destNamespace": "pravega",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "argo/local/apps/pravega/overlays/pravega",
+  "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
