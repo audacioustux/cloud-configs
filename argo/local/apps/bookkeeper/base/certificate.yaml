@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-cert-bk
+  namespace: pravega
+spec:
+  secretName: selfsigned-cert-tls-bk
+  commonName: bookkeeper-webhook-svc.pravega.svc.cluster.local
+  dnsNames:
+    - bookkeeper-webhook-svc
+    - bookkeeper-webhook-svc.pravega.svc.cluster.local
+    - bookkeeper-webhook-svc.pravega.svc
+  issuerRef:
+    name: selfsigned-issuer-bk
