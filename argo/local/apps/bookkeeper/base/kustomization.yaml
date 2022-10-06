@@ -11,3 +11,5 @@ helmCharts:
     namespace: pravega
     valuesInline:
       replicas: 1
+resources:
+  - "./certificate.yaml"
