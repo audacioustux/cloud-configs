@@ -1,5 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: pravega
-resources:
-- ../../base
+# resources:
+# - ../../base
+
+helmCharts:
+  - name: pravega/zookeeper-operator
+    repo: https://charts.pravega.io
+    releaseName: zookeeper-operator
+    namespace: pravega
