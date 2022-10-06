@@ -4,11 +4,11 @@ namespace: pravega
 helmCharts:
   - name: pravega/zookeeper
     repo: https://charts.pravega.io
-    version: v0.2.14
+    # version: v0.2.14
     releaseName: zookeeper
     namespace: pravega
   - name: pravega/zookeeper-operator
     repo: https://charts.pravega.io
-    version: v0.2.14
+    # version: v0.2.14
     releaseName: zookeeper-operator
     namespace: pravega
