@@ -1,6 +1,6 @@
 {
-  "appName": "zookeeper",
-  "userGivenName": "zookeeper",
+  "appName": "bookkeeper",
+  "userGivenName": "bookkeeper",
   "destNamespace": "pravega",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "argo/local/apps/zookeeper/overlays/pravega",
