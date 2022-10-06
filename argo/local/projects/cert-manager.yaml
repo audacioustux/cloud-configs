@@ -6,13 +6,13 @@ metadata:
     argocd.argoproj.io/sync-options: PruneLast=true
     argocd.argoproj.io/sync-wave: "-2"
   creationTimestamp: null
-  name: infra
+  name: cert-manager
   namespace: argocd
 spec:
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
-  description: infra project
+  description: cert-manager project
   destinations:
   - namespace: '*'
     server: '*'
@@ -30,13 +30,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   creationTimestamp: null
-  name: infra
+  name: cert-manager
   namespace: argocd
 spec:
   generators:
   - git:
       files:
-      - path: argo/local/apps/**/infra/config.json
+      - path: argo/local/apps/**/cert-manager/config.json
       repoURL: https://github.com/audacioustux/cloud-configs.git
       requeueAfterSeconds: 20
       revision: ""
@@ -49,7 +49,7 @@ spec:
             repoURL: ""
   - git:
       files:
-      - path: argo/local/apps/**/infra/config_dir.json
+      - path: argo/local/apps/**/cert-manager/config_dir.json
       repoURL: https://github.com/audacioustux/cloud-configs.git
       requeueAfterSeconds: 20
       revision: ""
@@ -71,7 +71,7 @@ spec:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-      name: infra-{{ userGivenName }}
+      name: cert-manager-{{ userGivenName }}
       namespace: argocd
     spec:
       destination:
@@ -82,7 +82,7 @@ spec:
         jsonPointers:
         - /status
         kind: Application
-      project: infra
+      project: cert-manager
       source:
         path: '{{ srcPath }}'
         repoURL: '{{ srcRepoURL }}'
