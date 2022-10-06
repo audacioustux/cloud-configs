@@ -17,10 +17,3 @@ namespace: argocd
 resources:
   # - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.7
   - github.com/argoproj-labs/argocd-autopilot/manifests/insecure
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: argocd
-resources:
-  - ./issuer.yaml
-  - ./ingress.yaml
