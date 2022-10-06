@@ -17,6 +17,6 @@ namespace: argocd
 resources:
   # - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.7
   - github.com/argoproj-labs/argocd-autopilot/manifests/insecure
-  - ./cert-manager.yaml
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
   - ./issuer.yaml
   - ./ingress.yaml
