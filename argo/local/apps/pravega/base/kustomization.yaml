@@ -13,3 +13,4 @@ helmCharts:
       replicas: 1
 resources:
   - ./certificate.yaml
+  - ./pvc.yaml
