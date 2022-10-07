@@ -1,7 +1,7 @@
 {
   "appName": "nfs-ganesha-provisioner",
   "userGivenName": "nfs-ganesha-provisioner",
-  "destNamespace": "",
+  "destNamespace": "nfs-provisioner",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "argo/local/apps/nfs-ganesha-provisioner/overlays/shared",
   "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
