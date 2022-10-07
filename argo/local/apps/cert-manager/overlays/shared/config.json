@@ -1,0 +1,11 @@
+{
+  "appName": "cert-manager",
+  "userGivenName": "cert-manager",
+  "destNamespace": "",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "argo/local/apps/cert-manager/overlays/shared",
+  "srcRepoURL": "https://github.com/audacioustux/cloud-configs.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
