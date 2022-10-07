@@ -1,5 +1,5 @@
 {
-  "appName": "shared-cert-manager",
+  "appName": "cert-manager",
   "userGivenName": "cert-manager",
   "destNamespace": "",
   "destServer": "https://kubernetes.default.svc",
