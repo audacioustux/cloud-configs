@@ -13,4 +13,4 @@ helmCharts:
       replicas: 1
 resources:
   - ./certificate.yaml
-  - ./pvc.yaml
+  - ./pravega-tier2.yaml
