@@ -9,7 +9,5 @@ helmCharts:
     repo: https://charts.pravega.io
     releaseName: bookkeeper
     namespace: pravega
-    valuesInline:
-      replicas: 1
 resources:
   - ./certificate.yaml

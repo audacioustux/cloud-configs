@@ -13,14 +13,3 @@ helmCharts:
       replicas: 1
 resources:
   - ./certificate.yaml
-  - https://raw.githubusercontent.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/master/deploy/kubernetes/rbac.yaml
-  - ./pvc.yaml
-  - https://raw.githubusercontent.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/master/deploy/kubernetes/deployment.yaml
-  - https://raw.githubusercontent.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/master/deploy/kubernetes/class.yaml
-patches:
-  - path: tier2-nfs.patch.json
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: nfs-provisioner
