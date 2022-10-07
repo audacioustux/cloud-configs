@@ -6,7 +6,7 @@
       {
         "name": "export-volume",
         "persistentVolumeClaim": {
-          "claimName": "pravega-tier2"
+          "claimName": "ganesha-pvc"
         }
       }
     ]

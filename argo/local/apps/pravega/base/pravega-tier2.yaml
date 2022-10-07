@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: pravega-tier2
 spec:
+  storageClassName: "nfs"
   accessModes:
     - ReadWriteMany
   resources:
