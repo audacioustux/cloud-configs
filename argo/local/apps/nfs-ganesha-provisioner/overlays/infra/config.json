@@ -1,6 +1,6 @@
 {
   "appName": "nfs-ganesha-provisioner",
-  "userGivenName": "nfs-ganesha-provisioner",
+  "userGivenName": "nfs-provisioner",
   "destNamespace": "",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "argo/local/apps/nfs-ganesha-provisioner/overlays/infra",
