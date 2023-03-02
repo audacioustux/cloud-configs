@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: kuma
 resources:
   - ../../base
-  - ./ingress.yaml

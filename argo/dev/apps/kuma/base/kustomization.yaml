@@ -6,3 +6,5 @@ namespace: kuma
 resources:
   - service.yaml
   - statefulset.yaml
+  - ingress.yaml
+

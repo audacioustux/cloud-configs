@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: trilium
+  namespace: trilium
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`trilium.audacioustux.com`)
+      kind: Rule
+      services:
+        - name: trilium-service
+          port: 8080
