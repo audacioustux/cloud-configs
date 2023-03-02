@@ -1,0 +1,13 @@
+{
+  "appName": "gitops-demo-app1",
+  "userGivenName": "gitops-demo-app1",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "deploy",
+  "srcRepoURL": "https://github.com/myspotontheweb/gitops-demo-app1.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
