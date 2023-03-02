@@ -25,6 +25,14 @@ resource "cloudflare_record" "com_audacioustux_A_kuma" {
   proxied = true
 }
 
+resource "cloudflare_record" "com_audacioustux_A_trilium" {
+  zone_id = local.zone_audacioustux.id
+  name    = "trilium"
+  value   = local.k3s_test_server-public_ip
+  type    = "A"
+  proxied = true
+}
+
 resource "cloudflare_record" "com_audacioustux_A_argocd-test" {
   zone_id = local.zone_audacioustux.id
   name    = "argocd-test"
