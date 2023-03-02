@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: trilium
-          image: zadam/trilium:0.47.7
+          image: zadam/trilium:0.59-latest
           env:
             - name: TRILIUM_DB_FILE
               value: /data/trilium.sqlite
